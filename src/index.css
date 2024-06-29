@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+    /* overflow-y: hidden; */
+    font-weight: 300;
+    color: #191414;
+    line-height: 1.15;
+}
