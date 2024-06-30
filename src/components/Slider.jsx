@@ -186,7 +186,7 @@ const Slider = ({ position }) => {
 
     const arrow = {
         hover: {
-            backgroundImage: `url(${arrowDark})`,
+            backgroundImage: `url('/src/assets/icon-arrow-dark.svg')`,
             backgroundColor: '#fff',
 
         }
@@ -206,14 +206,14 @@ const Slider = ({ position }) => {
             </div>
             <div className="px-[60px] mx-auto relative overflow-hidden z-[1] ">
                 <motion.div ref={cardsref} style={{ x: transformSlide, transitionDuration: transition }} className="z-[1] relative w-full h-full flex  ">
-                    <SliderCard width={cardWidth} index={3} current={current} branch={cards[3].branch} role={cards[3].role} speciality={cards[3].speciality} location={cards[3].location} />
-                    <SliderCard width={cardWidth} index={4} current={current} branch={cards[4].branch} role={cards[4].role} speciality={cards[4].speciality} location={cards[4].location} />
+                    <SliderCard width={cardWidth} indexed={3} current={current} branch={cards[3].branch} role={cards[3].role} speciality={cards[3].speciality} location={cards[3].location} />
+                    <SliderCard width={cardWidth} indexed={4} current={current} branch={cards[4].branch} role={cards[4].role} speciality={cards[4].speciality} location={cards[4].location} />
 
                     {cards.map((card, index) => (
-                        <SliderCard key={index} index={index} current={current} width={cardWidth} branch={card.branch} role={card.role} speciality={card.speciality} location={card.location} />
+                        <SliderCard key={index} indexed={index} current={current} width={cardWidth} branch={card.branch} role={card.role} speciality={card.speciality} location={card.location} />
                     ))}
-                    <SliderCard width={cardWidth} index={0} current={current} branch={cards[0].branch} role={cards[0].role} speciality={cards[0].speciality} location={cards[0].location} />
-                    <SliderCard width={cardWidth} index={1} current={current} branch={cards[1].branch} role={cards[1].role} speciality={cards[1].speciality} location={cards[1].location} />
+                    <SliderCard width={cardWidth} indexed={0} current={current} branch={cards[0].branch} role={cards[0].role} speciality={cards[0].speciality} location={cards[0].location} />
+                    <SliderCard width={cardWidth} indexed={1} current={current} branch={cards[1].branch} role={cards[1].role} speciality={cards[1].speciality} location={cards[1].location} />
 
                 </motion.div>
                 <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-[calc(50%-366.5px)] '>
