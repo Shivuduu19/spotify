@@ -217,11 +217,11 @@ const Slider = ({ position }) => {
 
                 </motion.div>
                 <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-[calc(50%-366.5px)] '>
-                    <motion.button style={buttonClick ? { opacity: 0, transitionDuration: '.2s' } : { opacity: 1 }} variants={arrow} className={` transition-[background-color] duration-[.2s] border-solid border-[1px] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')]  bg-transparent   scale-x-[-1] rounded-[50%] w-[60px] h-[60px] bg-no-repeat bg-[50%] leading-[1.15] m-0  `} onClick={() => onLeftClick()}>
+                    <motion.button style={buttonClick ? { opacity: 0, transitionDuration: '.2s' } : { opacity: 1 }} className={` transition-[background-color] duration-[.2s] border-solid border-[1px] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')]  bg-transparent   scale-x-[-1] rounded-[50%] w-[60px] h-[60px] bg-no-repeat bg-[50%] leading-[1.15] m-0  `} variants={arrow} onClick={() => onLeftClick()}>
                     </motion.button>
                 </motion.div>
                 <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-auto right-[calc(50%-366.5px)]'>
-                    <motion.button style={buttonClick ? { opacity: 0 } : { opacity: 1 }} variants={arrow} className={`  border-solid border-[1px] duration-[.2s] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')] bg-transparent transition-colors   rounded-[50%] w-[60px] h-[60px] bg-no-repeat bg-[50%] leading-[1.15] m-0 `} onClick={() => onRightClick()}>
+                    <motion.button style={buttonClick ? { opacity: 0 } : { opacity: 1 }} className={`  border-solid border-[1px] duration-[.2s] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')] bg-transparent transition-colors   rounded-[50%] w-[60px] h-[60px] bg-no-repeat bg-[50%] leading-[1.15] m-0 `} variants={arrow} onClick={() => onRightClick()}>
                     </motion.button>
                 </motion.div>
             </div>
