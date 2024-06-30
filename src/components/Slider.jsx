@@ -91,7 +91,6 @@ const Slider = ({ position }) => {
         handle()
         window.addEventListener('resize', handle)
 
-        setSlideState(-cardWidth * 1.78)
         return () => window, removeEventListener('resize', handle)
     }, [cardWidth])
     // console.log(window);
