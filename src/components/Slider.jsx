@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 import arrowDark from '../assets/icon-arrow-dark.svg'
 
 const Slider = ({ position }) => {
-    const [slideState, setSlideState] = useState(0)
+
     const [transformSlide, setTransfromSlide] = useState(0)
     const cards = [
         {
@@ -57,7 +57,7 @@ const Slider = ({ position }) => {
 
             }
             else if (windowWidth >= 1800) {
-                setCardWidth(cardsref.current.getBoundingClientRect().width / 2.61)
+                setCardWidth(cardsref.current.getBoundingClientRect().width / 2.5454)
 
             }
             else {
@@ -68,17 +68,18 @@ const Slider = ({ position }) => {
         window.addEventListener('resize', handleCard)
         return () => window.removeEventListener('resize', handleCard)
     }, [cardWidth])
-    console.log(cardWidth);
-    // console.log(cardsref.current.getBoundingClientRect().width / 2.61);
+    // console.log(cardWidth);
+    // console.log(cardsref.current.getBoundingClientRect().width);
     useEffect(() => {
 
         const handle = () => {
             if (windowWidth >= 1300 && windowWidth < 1800) {
+
                 setTransfromSlide(-cardWidth * 1.55)
 
             }
             else if (windowWidth >= 1800) {
-                setTransfromSlide(-cardWidth * 1.25)
+                setTransfromSlide(-cardWidth * 1.289999)
 
             }
             else {
@@ -87,7 +88,6 @@ const Slider = ({ position }) => {
             }
 
         }
-        // console.log(-cardWidth);
         handle()
         window.addEventListener('resize', handle)
 
@@ -96,6 +96,7 @@ const Slider = ({ position }) => {
     }, [cardWidth])
     // console.log(window);
 
+    // console.log(-cardWidth);
     // console.log(windowWidth);
     // console.log(current);
     // console.log(transformSlide);
@@ -108,13 +109,33 @@ const Slider = ({ position }) => {
             // }
             if (current === 2) {
                 cardsref.current.style.transitionDuration = '0ms'
-                setTransfromSlide(-cardWidth * 2.78)
+                if (windowWidth >= 1300 && windowWidth < 1800) {
+                    setTransfromSlide(-cardWidth * 2.58)
+
+                }
+                else if (windowWidth >= 1800) {
+                    setTransfromSlide(-cardWidth * 2.319)
+                } else {
+
+                    setTransfromSlide(-cardWidth * 2.812)
+                }
             }
             // console.log(-cardWidth * 4.845);
 
             if (current >= cards.length) {
                 cardsref.current.style.transitionDuration = '0ms'
-                setTransfromSlide(-cardWidth * 5.845)
+                if (windowWidth >= 1300 && windowWidth < 1800) {
+
+                    setTransfromSlide(-cardWidth * 5.679)
+                }
+                else if (windowWidth >= 1800) {
+
+                    setTransfromSlide(-cardWidth * 5.410)
+                }
+                else {
+
+                    setTransfromSlide(-cardWidth * 5.908)
+                }
 
             }
         }
@@ -149,7 +170,17 @@ const Slider = ({ position }) => {
         } else {
             setCurrent(prev => ++prev)
         }
-        setTransfromSlide(prev => prev - cardWidth - 20)
+
+        if (windowWidth >= 1300 && windowWidth < 1800) {
+
+            setTransfromSlide(prev => prev - cardWidth * 1.033)
+        }
+        else if (windowWidth >= 1800) {
+            setTransfromSlide(prev => prev - cardWidth - 20)
+        } else {
+
+            setTransfromSlide(prev => prev - cardWidth - 20)
+        }
 
 
     }
@@ -165,7 +196,7 @@ const Slider = ({ position }) => {
     //     hover: {
     //     }
     // }
-    let transition = buttonClick ? ('500ms') : ('0ms')
+    let transition = buttonClick ? ('550ms') : ('0ms')
 
     return (
         <div className="min-h-screen py-[125px]">
@@ -176,14 +207,14 @@ const Slider = ({ position }) => {
             </div>
             <div className="px-[60px] mx-auto relative overflow-hidden z-[1] ">
                 <motion.div ref={cardsref} style={{ x: transformSlide, transitionDuration: transition }} className="z-[1] relative w-full h-full flex  ">
-                    <SliderCard width={cardWidth} branch={cards[3].branch} role={cards[3].role} speciality={cards[3].speciality} location={cards[3].location} />
-                    <SliderCard width={cardWidth} branch={cards[4].branch} role={cards[4].role} speciality={cards[4].speciality} location={cards[4].location} />
+                    <SliderCard width={cardWidth} index={3} current={current} branch={cards[3].branch} role={cards[3].role} speciality={cards[3].speciality} location={cards[3].location} />
+                    <SliderCard width={cardWidth} index={4} current={current} branch={cards[4].branch} role={cards[4].role} speciality={cards[4].speciality} location={cards[4].location} />
 
                     {cards.map((card, index) => (
-                        <SliderCard key={index} width={cardWidth} branch={card.branch} role={card.role} speciality={card.speciality} location={card.location} />
+                        <SliderCard key={index} index={index} current={current} width={cardWidth} branch={card.branch} role={card.role} speciality={card.speciality} location={card.location} />
                     ))}
-                    <SliderCard width={cardWidth} branch={cards[0].branch} role={cards[0].role} speciality={cards[0].speciality} location={cards[0].location} />
-                    <SliderCard width={cardWidth} branch={cards[1].branch} role={cards[1].role} speciality={cards[1].speciality} location={cards[1].location} />
+                    <SliderCard width={cardWidth} index={0} current={current} branch={cards[0].branch} role={cards[0].role} speciality={cards[0].speciality} location={cards[0].location} />
+                    <SliderCard width={cardWidth} index={1} current={current} branch={cards[1].branch} role={cards[1].role} speciality={cards[1].speciality} location={cards[1].location} />
 
                 </motion.div>
                 <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-[calc(50%-366.5px)] '>
