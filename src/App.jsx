@@ -23,10 +23,10 @@ function App() {
   return (
 
     <>
-      <main ref={mainref} style={position >= 0.5 && position <= 0.8 ? { backgroundColor: '#2d46b9', opacity: 1, transition: 'background-color .45s' } : { backgroundColor: '#fff' }} className="">
+      <main ref={mainref} style={position >= 0.5 && position <= 0.8 ? { backgroundColor: '#2d46b9', opacity: 1, transition: 'background-color .45s' } : { backgroundColor: '#fff' }} className="relative">
 
         <div className="h-[70vh]  relative"></div>
-        <Cards position={position} />
+        <Cards mainref={mainref} />
         <Slider position={position} />
         <div className="h-[150vh]  relative"></div>
       </main>
