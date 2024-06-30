@@ -61,7 +61,7 @@ const Cards = ({ mainref }) => {
     const resolVariants2 = {
 
         desktop1: {
-            y: scrollstop - upperDivHei - 65 - thirdDivhei,
+            y: scrollstop - upperDivHei - 2 * 76 - thirdDivhei,
 
         }
     }
@@ -71,7 +71,7 @@ const Cards = ({ mainref }) => {
 
 
         desktop1: {
-            y: scrollstop - upperDivHei - 2 * thirdDivhei - 2 * 76 + 20,
+            y: scrollstop - upperDivHei - 2 * thirdDivhei - 295,
 
         }
     }
