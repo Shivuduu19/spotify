@@ -51,6 +51,7 @@ const Slider = ({ position }) => {
     // }
 
     useEffect(() => {
+        // console.log(cardsref.current.getBoundingClientRect().width);
         const handleCard = () => {
             if (windowWidth >= 1300 && windowWidth < 1800) {
                 setCardWidth(cardsref.current.getBoundingClientRect().width / 2.03)
@@ -61,7 +62,7 @@ const Slider = ({ position }) => {
 
             }
             else {
-                setCardWidth(cardsref.current.getBoundingClientRect().width / 1.52)
+                setCardWidth(cardsref.current.getBoundingClientRect().width / 1.244)
             }
         }
         handleCard()
@@ -69,7 +70,6 @@ const Slider = ({ position }) => {
         return () => window.removeEventListener('resize', handleCard)
     }, [cardWidth])
     // console.log(cardWidth);
-    // console.log(cardsref.current.getBoundingClientRect().width);
     useEffect(() => {
 
         const handle = () => {
@@ -84,7 +84,7 @@ const Slider = ({ position }) => {
             }
             else {
 
-                setTransfromSlide(-cardWidth * 1.78)
+                setTransfromSlide(-cardWidth * 2.005)
             }
 
         }
@@ -116,7 +116,7 @@ const Slider = ({ position }) => {
                     setTransfromSlide(-cardWidth * 2.319)
                 } else {
 
-                    setTransfromSlide(-cardWidth * 2.812)
+                    setTransfromSlide(-cardWidth * 3.069)
                 }
             }
             // console.log(-cardWidth * 4.845);
@@ -133,7 +133,7 @@ const Slider = ({ position }) => {
                 }
                 else {
 
-                    setTransfromSlide(-cardWidth * 5.908)
+                    setTransfromSlide(-cardWidth * 6.262)
                 }
 
             }
@@ -201,10 +201,10 @@ const Slider = ({ position }) => {
         <div className="min-h-screen py-[125px]">
             <div className="max-w-[1440px] mx-auto px-[60px] mb-[70px] w-full">
                 <div className="px-[20px] ">
-                    <h2 className={`${position >= 0.5 && position <= 0.8 ? 'text-[#fff]' : 'text-[#191414'} text-center text-[calc(1.5rem+2*(100vw-48rem)/42)] tracking-[-.02em] m-0 p-0 font-normal `}>Featured jobs</h2>
+                    <h2 className={`${position >= 0.5 && position <= 0.8 ? 'text-[#fff]' : 'text-[#191414'} text-center text-[1.5rem] md:text-[calc(1.5rem+2*(100vw-48rem)/42)] tracking-[-.02em] m-0 p-0 font-normal `}>Featured jobs</h2>
                 </div>
             </div>
-            <div className="px-[60px] mx-auto relative overflow-hidden z-[1] ">
+            <div className="px-[20px] sm:px-[60px] mx-auto relative overflow-hidden z-[1] ">
                 <motion.div ref={cardsref} style={{ x: transformSlide, transitionDuration: transition }} className="z-[1] relative w-full h-full flex  ">
                     <SliderCard width={cardWidth} indexed={3} current={current} branch={cards[3].branch} role={cards[3].role} speciality={cards[3].speciality} location={cards[3].location} />
                     <SliderCard width={cardWidth} indexed={4} current={current} branch={cards[4].branch} role={cards[4].role} speciality={cards[4].speciality} location={cards[4].location} />
@@ -216,14 +216,31 @@ const Slider = ({ position }) => {
                     <SliderCard width={cardWidth} indexed={1} current={current} branch={cards[1].branch} role={cards[1].role} speciality={cards[1].speciality} location={cards[1].location} />
 
                 </motion.div>
-                <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-[calc(50%-366.5px)] '>
-                    <motion.button style={buttonClick ? { opacity: 0, transitionDuration: '.2s' } : { opacity: 1 }} className={` transition-[background-color] duration-[.2s] border-solid border-[1px] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')]  bg-transparent   scale-x-[-1] rounded-[50%] w-[60px] h-[60px] bg-no-repeat bg-[50%] leading-[1.15] m-0  `} variants={arrow} onClick={() => onLeftClick()}>
+                <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-[calc(50%-366.5px)] tablet:hidden '>
+                    <motion.button style={buttonClick ? { opacity: 0, transitionDuration: '.2s' } : { opacity: 1 }} className={`transition-[background-color] duration-[.2s] border-solid border-[1px] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')]  bg-transparent   scale-x-[-1] rounded-[50%] w-[60px] h-[60px] bg-no-repeat bg-[50%] leading-[1.15] m-0  `} variants={arrow} onClick={() => onLeftClick()}>
                     </motion.button>
                 </motion.div>
-                <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-auto right-[calc(50%-366.5px)]'>
+                <motion.div whileHover='hover' className='absolute top-[50%] translate-y-[-50%] z-[2] left-auto right-[calc(50%-366.5px)] tablet:hidden '>
                     <motion.button style={buttonClick ? { opacity: 0 } : { opacity: 1 }} className={`  border-solid border-[1px] duration-[.2s] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')] bg-transparent transition-colors   rounded-[50%] w-[60px] h-[60px] bg-no-repeat bg-[50%] leading-[1.15] m-0 `} variants={arrow} onClick={() => onRightClick()}>
                     </motion.button>
                 </motion.div>
+            </div>
+            <div className='tablet:block hidden mt-[40px] py-0 px-5  max-w-[1440px] mx-auto w-full'>
+                <div className='flex mx-[-20px] '>
+                    <div className='px-[20px] basis-[25%] max-w-[25%] flex-grow-0 flex-shrink-0'>
+                        <motion.button style={buttonClick ? { opacity: 0, transitionDuration: '.2s' } : { opacity: 1 }} className={`transition-[background-color] duration-[.2s] border-solid border-[1px] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')]  bg-transparent   scale-x-[-1] rounded-[50%] w-[60px] h-[60px] tablet:bg-[size:45%] tablet:w-[40px] tablet:h-[40px] bg-no-repeat bg-[50%] leading-[1.15] m-0  `} variants={arrow} onClick={() => onLeftClick()}>
+                        </motion.button>
+                    </div>
+                    <div className='flex-grow-0 flex-shrink-0 px-[20px] basis-[50%] max-w-[50%] self-center text-center'>
+                        <p className='text-[#fff] transition-colors duration-[.4s] text-[.875rem] font-normal m-0'>
+                            {current} of 5
+                        </p>
+                    </div>
+                    <div className='px-[20px] basis-[25%] max-w-[25%] flex-grow-0 flex-shrink-0 flex justify-end'>
+                        <motion.button style={buttonClick ? { opacity: 0 } : { opacity: 1 }} className={`  border-solid border-[1px] duration-[.2s] border-[#fff] bg-[url('./assets/icon-arrow-light.svg')] bg-transparent transition-colors   rounded-[50%] w-[60px] h-[60px] tablet:bg-[size:45%] tablet:w-[40px] tablet:h-[40px] bg-no-repeat bg-[50%] leading-[1.15] m-0 `} variants={arrow} onClick={() => onRightClick()}>
+                        </motion.button>
+                    </div>
+                </div>
             </div>
         </div>
     )

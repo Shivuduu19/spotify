@@ -4,7 +4,7 @@
 
 
 body {
-    /* overflow-y: hidden; */
+    overflow-x: hidden;
     font-weight: 300;
     color: #191414;
     line-height: 1.15;
